@@ -10,7 +10,7 @@ manifest:
 
     - name: zmk-feature-custom-settings
       url: https://github.com/0UmetaroU0/zmk-feature-custom-settings-v03
-      revision: v0.3-port
+      revision: 07765c211281c1c6bd98740e1632a376f02f8a98
 
     - name: zmk-feature-runtime-macro
       url: https://github.com/0UmetaroU0/zmk-feature-runtime-macro-v03
