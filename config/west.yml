@@ -12,9 +12,9 @@ manifest:
       url: https://github.com/0UmetaroU0/zmk-feature-custom-settings-v03
       revision: v0.3-port
 
-    - name: zmk-feature-runtime-macro
-      url: https://github.com/0UmetaroU0/zmk-feature-runtime-macro-v03
-      revision: main
+　　- name: zmk-feature-runtime-macro
+　　  url: https://github.com/0UmetaroU0/zmk-feature-runtime-macro-v03
+　　  revision: e98d1eb33be63f4679356a96f1732aad84a7ac44
 
     - name: zmk
       remote: cormoran
