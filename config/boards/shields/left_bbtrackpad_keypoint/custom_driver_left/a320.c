@@ -153,21 +153,26 @@ static int a320_read_packet(const struct device *dev, int8_t *dx, int8_t *dy) {
     const struct a320_config *cfg = dev->config;
     uint8_t buf[A320_PACKET_LEN] = {0};
     uint8_t reg = 0x82;
-
     int ret;
 
-    k_mutex_lock(&a320_i2c_mutex, K_FOREVER);
+    ret = k_mutex_lock(&a320_i2c_mutex, K_FOREVER);
+    if (ret < 0) {
+        return ret;
+    }
 
-    if (i2c_write_dt(&cfg->i2c, &reg, 1) < 0)
+    ret = i2c_write_dt(&cfg->i2c, &reg, 1);
+    if (ret < 0) {
         goto out;
+    }
 
-    if (i2c_burst_read_dt(&cfg->i2c, 0x82, buf, sizeof(buf)) < 0)
+    ret = i2c_burst_read_dt(&cfg->i2c, 0x82, buf, sizeof(buf));
+    if (ret < 0) {
         goto out;
+    }
 
     *dx = (int8_t)buf[1];
     *dy = -(int8_t)buf[2];
-
-    return 0;
+    ret = 0;
 
 out:
     k_mutex_unlock(&a320_i2c_mutex);
