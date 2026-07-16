@@ -21,6 +21,40 @@
 #define BOT bootloader
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        combo_df {
+            timeout-ms = <40>;
+            key-positions = <15 16>;
+            layers = <0>;
+            bindings = <&rmacro 4>;
+        };
+
+        combo_jk {
+            timeout-ms = <40>;
+            key-positions = <21 22>;
+            layers = <0>;
+            bindings = <&rmacro 5>;
+        };
+
+        combo_sd {
+            timeout-ms = <40>;
+            key-positions = <14 15>;
+            layers = <0>;
+            bindings = <&rmacro 6>;
+        };
+
+        combo_kl {
+            timeout-ms = <40>;
+            key-positions = <22 23>;
+            layers = <0>;
+            bindings = <&rmacro 7>;
+        };
+    };
+};
+
+/ {
     behaviors {
         td0: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
