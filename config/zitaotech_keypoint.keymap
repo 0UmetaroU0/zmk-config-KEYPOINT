@@ -162,5 +162,32 @@
             bindings = <&mo &kp>;
             display-name = "Layer-Tap 250ms";
         };
+
+        mt150_studio: studio_mod_tap_150 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <150>;
+            bindings = <&kp &kp>;
+            display-name = "Mod-Tap 150ms";
+        };
+
+        mt200_studio: studio_mod_tap_200 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&kp &kp>;
+            display-name = "Mod-Tap 200ms";
+        };
+
+        mt250_studio: studio_mod_tap_250 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <250>;
+            bindings = <&kp &kp>;
+            display-name = "Mod-Tap 250ms";
+        };
     };
 };
