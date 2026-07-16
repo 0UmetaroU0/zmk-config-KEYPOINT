@@ -64,6 +64,7 @@ static struct k_work_q tp_workq;
 #define MOUSE_BASE_SPEED (CONFIG_TRACKPOINT_MOUSE_BASE_SPEED_PERCENT / 100.0f)
 #define MOUSE_SENS_BASE (CONFIG_TRACKPOINT_MOUSE_SENS_BASE_PERCENT / 100.0f)
 #define MOUSE_SENS_STEP (CONFIG_TRACKPOINT_MOUSE_SENS_STEP_PERCENT / 100.0f)
+#define SCROLL_SPEED_MULTIPLIER (CONFIG_TRACKPOINT_SCROLL_SPEED_PERCENT / 100.0f)
 
 /* ========= Motion GPIO ========= */
 
@@ -344,6 +345,8 @@ static void trackpoint_work_cb(struct k_work *work) {
                       : (speed > 20) ? 0.03f
                       : (speed > 5)  ? 0.02f
                                      : 0.015f;
+        scale *= SCROLL_SPEED_MULTIPLIER;
+        
         scroll_residual_x += dx * scale;
         scroll_residual_y += dy * scale;
 
